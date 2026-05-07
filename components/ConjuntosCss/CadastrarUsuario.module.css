@@ -1,0 +1,80 @@
+.mainCadastrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    padding: 1.5rem;
+}
+
+.painelCadastrar {
+    width: 100%;
+    max-width: 28rem;
+    border: 1px solid #6b7280;
+    border-radius: 0.75rem;
+    background-color: #e5e7eb;
+    padding: 1.5rem;
+}
+
+.painelCadastrar > * + * {
+  margin-top: 1rem;
+}
+
+.containerCabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.containerImagem {
+    border: 2px;
+    border-style: solid;
+    border-color: #fbbf24;
+    border-radius: 0.75rem;
+}
+
+.tituloCabecalho {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.containerInputs {
+    display: grid;     
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    gap: 1rem;               
+}
+
+.containerElementoInput {
+    border: 1px solid #d1d5db;
+     outline: none;               
+    transition: border-color 0.2s ease;
+}
+          
+.containerElementoInput:focus {
+    border-color: #3b82f6;
+}
+
+.containerConjuntoLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.containerLinks {
+    color: #2563eb; 
+    text-decoration: underline;
+    transition: 200ms ease-in-out;
+}
+
+.containerLinks:hover {
+    color: #1e40af;
+    transform: scale(1.1);
+}

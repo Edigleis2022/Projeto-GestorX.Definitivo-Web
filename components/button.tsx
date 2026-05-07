@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
+import styles from "@/components/ConjuntosCss/ComponentesCss/Button.module.css";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -6,11 +7,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ children, ...props }: ButtonProps) {
   return (
-    <button
-      {...props}
-      className="w-full py-2 px-4 text-[15px] rounded-md border border-black bg-white 
-      transition duration-200 ease-in-out hover:bg-gray-300 hover:text-[18px] hover:scale-110"
-    >
+    <button {...props} className={styles.containerbotao}>
       {children}
     </button>
   );
