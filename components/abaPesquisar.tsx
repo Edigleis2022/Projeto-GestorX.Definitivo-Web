@@ -1,4 +1,5 @@
 import { Search } from "lucide-react";
+import styles from "@/components/ConjuntosCss/ComponentesCss/AbaPesquisar.module.css";
 
 interface AbaPesquisarProps {
   query: string;
@@ -7,10 +8,8 @@ interface AbaPesquisarProps {
 
 export default function AbaPesquisar({ query, setQuery }: AbaPesquisarProps) {
   return (
-    <div classname={Styles.containerDiv}
-    // className="flex items-center gap-2 bg-white rounded-md px-3 py-2 w-2/5"
-    >
-      <Search className="w-5 h-5 text-gray-600" />
+    <div className={styles.containerDiv}>
+      <Search className={styles.searchIcon} />
       <input
         type="text"
         placeholder="Pesquisar"

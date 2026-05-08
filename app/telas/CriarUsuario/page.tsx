@@ -22,29 +22,40 @@ export default function CriarUsuario() {
   }
 
   async function criarConta() {
-    alert("Novo usuário criado com sucesso!");
+    const response = await fetch("/api/usuarios", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      alert(data.error ?? "Nao foi possivel criar o usuario.");
+      return;
+    }
+
+    alert("Novo usuario criado com sucesso!");
   }
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
       <div className="w-full max-w-2xl border border-black rounded-md bg-gray-200 p-6 space-y-6">
-
         <div className="flex flex-col items-center gap-2">
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
-             className="border-2 border-amber-600 border-radius rounded-xl"
+              className="border-2 border-amber-600 border-radius rounded-xl"
               src={Logo}
               alt="Logo"
               width={200}
               height={300}
             />
           </Link>
-          <h1 className="text-xl font-semibold text-black">Criar Novo Usuário</h1>
+          <h1 className="text-xl font-semibold text-black">Criar Novo Usuario</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-        <div className="space-y-5">
+          <div className="space-y-5">
             <Input
               label="Nome Completo"
               value={form.nome}
@@ -85,7 +96,6 @@ export default function CriarUsuario() {
               onChange={(e) => atualizar("estabelecimento", e.target.value)}
             />
           </div>
-
         </div>
 
         <Button onClick={criarConta}>Criar Conta</Button>
