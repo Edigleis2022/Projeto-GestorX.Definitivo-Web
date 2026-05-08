@@ -6,6 +6,7 @@ import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
+import { api } from "@/lib/api";
 
 export default function CriarUsuario() {
   const [form, setForm] = useState({
@@ -22,21 +23,26 @@ export default function CriarUsuario() {
   }
 
   async function criarConta() {
-    const response = await fetch("/api/usuarios", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
 
-    const data = await response.json();
+  try {
 
-    if (!response.ok) {
-      alert(data.error ?? "Nao foi possivel criar o usuario.");
-      return;
-    }
+    const response = await api.post(
+      "/usuarios",
+      form
+    );
 
     alert("Novo usuario criado com sucesso!");
+
+    console.log(response.data);
+
+  } catch (error: any) {
+
+    alert(
+      error.response?.data?.message ??
+      "Nao foi possivel criar o usuario."
+    );
   }
+}
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
