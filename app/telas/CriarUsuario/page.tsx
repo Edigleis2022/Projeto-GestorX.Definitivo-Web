@@ -6,6 +6,7 @@ import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
+import style from "@/ConjuntoCss/ComponentesCss/CriarUsuario.module.css";
 
 export default function CriarUsuario() {
   const [form, setForm] = useState({
@@ -39,8 +40,8 @@ export default function CriarUsuario() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
-      <div className="w-full max-w-2xl border border-black rounded-md bg-gray-200 p-6 space-y-6">
+    <main className={style.containerMain}>
+      <div className={style.containerCriarUsuario}>
         <div className="flex flex-col items-center gap-2">
           <Link href="/" className="hover:opacity-80 transition-opacity">
             <Image
