@@ -5,12 +5,18 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from "next/link"
+import { useAuth } from "../app/context/AuthContext";
 import styles from "@/components/ConjuntosCss/CadastrarUsuario.module.css";
+import ProtectedRoute from "@/components/rotectedRoute";
 
 export default function CadastrarUsuario() {
-  const router = useRouter();
+
+    const {
+    logout,
+    usuario,
+  } = useAuth();
+  const { login } = useAuth();
 
   const [form, setForm] = useState({
     email: "",
@@ -18,26 +24,31 @@ export default function CadastrarUsuario() {
   });
 
   async function entrar() {
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
 
-    const data = await response.json();
+    try {
 
-    if (!response.ok) {
-      alert(data.error ?? "Nao foi possivel acessar sua conta.");
-      return;
+      await login(
+        form.email,
+        form.senha
+      );
+
+    } catch {
+
+      alert(
+        "Nao foi possivel acessar sua conta."
+      );
     }
-
-    router.push("/telas/TelaPrincipal");
   }
 
   return (
-    <main className={styles.mainCadastrar}>
+
+    <ProtectedRoute>
+      <main className={styles.mainCadastrar}>
+
       <div className={styles.painelCadastrar}>
+
         <div className={styles.containerCabecalho}>
+
           <Image
             className={styles.containerImagem}
             src={Logo}
@@ -45,18 +56,30 @@ export default function CadastrarUsuario() {
             width={200}
             height={300}
           />
-          <h1 className={styles.tituloCabecalho}>Cadastrar Usuario</h1>
+
+          <h1 className={styles.tituloCabecalho}>
+            Cadastrar Usuario
+          </h1>
+
         </div>
 
         <div className={styles.containerInputs}>
+
           <Input
             id="user-email"
             label="E-mail"
             type="email"
             value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                email: e.target.value,
+              })
+            }
             className={styles.containerElementoInput}
-            containerClassName={styles.containerElementoInput}
+            containerClassName={
+              styles.containerElementoInput
+            }
           />
 
           <Input
@@ -64,23 +87,45 @@ export default function CadastrarUsuario() {
             label="Senha"
             type="password"
             value={form.senha}
-            onChange={(e) => setForm({ ...form, senha: e.target.value })}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                senha: e.target.value,
+              })
+            }
             className={styles.containerElementoInput}
-            containerClassName={styles.containerElementoInput}
+            containerClassName={
+              styles.containerElementoInput
+            }
           />
+
         </div>
 
         <div className={styles.containerConjuntoLinks}>
-          <Link href="/telas/CriarUsuario" className={styles.containerLinks}>
+
+          <Link
+            href="/telas/CriarUsuario"
+            className={styles.containerLinks}
+          >
             Criar Novo Usuario
           </Link>
-          <Link href="/telas/RedefinirSenha" className={styles.containerLinks}>
+
+          <Link
+            href="/telas/RedefinirSenha"
+            className={styles.containerLinks}
+          >
             Redefinir Senha
           </Link>
+
         </div>
 
-        <Button onClick={entrar}>Cadastrar</Button>
+        <Button onClick={entrar}>
+          Entrar
+        </Button>
+
       </div>
+
     </main>
+    </ProtectedRoute>
   );
 }

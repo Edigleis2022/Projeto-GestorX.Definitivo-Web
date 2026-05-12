@@ -10,6 +10,7 @@ import SlideBarEstante from "../slideBar/Estante/page";
 import SlideBarContatos from "../slideBar/Contatos/page";
 import { IconButtonTelaPrincipal } from "@/components/iconButton";
 import AbaPesquisar from "@/components/abaPesquisar";
+import ProtectedRoute from "@/components/rotectedRoute";
 
 export default function TelaPrincipal() {
   const [activeSidebar, setActiveSidebar] = useState<null | string>(null);
@@ -19,8 +20,9 @@ export default function TelaPrincipal() {
   const closeSidebar = () => setActiveSidebar(null);
 
   return (
-    <main className="flex w-screen min-h-screen bg-white">
-      <section className="flex flex-1 flex-col">
+    <ProtectedRoute>
+      <main className="flex w-screen min-h-screen bg-white">
+        <section className="flex flex-1 flex-col">
 
         <header className="flex items-center justify-between bg-amber-700 text-white px-6 py-5">
           
@@ -52,5 +54,6 @@ export default function TelaPrincipal() {
       <SlideBarContatos isOpen={activeSidebar === "contatos"} onClose={closeSidebar}  />
 
     </main>
+    </ProtectedRoute>
   );
 }
