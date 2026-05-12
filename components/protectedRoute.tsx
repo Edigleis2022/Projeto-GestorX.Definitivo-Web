@@ -25,7 +25,7 @@ export default function ProtectedRoute({
   }, [autenticado]);
 
   if (!autenticado) {
-    return null;
+    return <h1>Carregando...</h1>;
   }
 
   return children;

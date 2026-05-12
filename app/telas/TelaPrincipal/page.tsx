@@ -10,7 +10,7 @@ import SlideBarEstante from "../slideBar/Estante/page";
 import SlideBarContatos from "../slideBar/Contatos/page";
 import { IconButtonTelaPrincipal } from "@/components/iconButton";
 import AbaPesquisar from "@/components/abaPesquisar";
-import ProtectedRoute from "@/components/rotectedRoute";
+import ProtectedRoute from "@/components/protectedRoute";
 
 export default function TelaPrincipal() {
   const [activeSidebar, setActiveSidebar] = useState<null | string>(null);

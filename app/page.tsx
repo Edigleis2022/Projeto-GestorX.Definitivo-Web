@@ -7,8 +7,8 @@ import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link"
 import { useAuth } from "../app/context/AuthContext";
-import styles from "@/components/ConjuntosCss/CadastrarUsuario.module.css";
-import ProtectedRoute from "@/components/rotectedRoute";
+import styles from "@/components/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
+import ProtectedRoute from "@/components/protectedRoute";
 
 export default function CadastrarUsuario() {
 
