@@ -42,7 +42,6 @@ export default function CadastrarUsuario() {
 
   return (
 
-    <ProtectedRoute>
       <main className={styles.mainCadastrar}>
 
       <div className={styles.painelCadastrar}>
@@ -126,6 +125,6 @@ export default function CadastrarUsuario() {
       </div>
 
     </main>
-    </ProtectedRoute>
+    
   );
 }

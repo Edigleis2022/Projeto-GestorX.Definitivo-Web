@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-
 import { useRouter } from "next/navigation";
-
 import { useAuth } from "../app/context/AuthContext";
 
 export default function ProtectedRoute({
@@ -14,18 +12,32 @@ export default function ProtectedRoute({
 
   const router = useRouter();
 
-  const { autenticado } = useAuth();
+  const {
+    autenticado,
+    loading,
+  } = useAuth();
 
   useEffect(() => {
 
-    if (!autenticado) {
+    if (
+      !loading &&
+      !autenticado
+    ) {
+
       router.push("/");
     }
 
-  }, [autenticado]);
+  }, [
+    autenticado,
+    loading,
+  ]);
+
+  if (loading) {
+    return <h1>Carregando...</h1>;
+  }
 
   if (!autenticado) {
-    return <h1>Carregando...</h1>;
+    return null;
   }
 
   return children;

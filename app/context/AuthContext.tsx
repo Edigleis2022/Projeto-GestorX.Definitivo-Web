@@ -8,16 +8,15 @@ import {
 } from "react";
 
 import { useRouter } from "next/navigation";
-
 import { api } from "@/lib/api";
 import { gerarBasicToken } from "@/lib/auth";
-
 import { Usuario } from "@/types/usuario";
 
 type AuthContextType = {
   usuario: Usuario | null;
   token: string | null;
   autenticado: boolean;
+  loading: boolean;
 
   login: (
     email: string,
@@ -46,6 +45,9 @@ export function AuthProvider({
   const [token, setToken] =
     useState<string | null>(null);
 
+  const [loading, setLoading] =
+  useState(true);
+
   useEffect(() => {
 
     const tokenStorage =
@@ -65,6 +67,8 @@ export function AuthProvider({
         JSON.parse(usuarioStorage)
       );
     }
+
+    setLoading(false);
 
   }, []);
 
@@ -121,6 +125,7 @@ export function AuthProvider({
         usuario,
         token,
         autenticado: !!usuario,
+        loading,
         login,
         logout,
       }}
