@@ -79,7 +79,7 @@ export function AuthProvider({
 
     const token =
       gerarBasicToken(email, senha);
-
+    console.log(token);
     const response = await api.get(
       "/usuarios/me",
       {
