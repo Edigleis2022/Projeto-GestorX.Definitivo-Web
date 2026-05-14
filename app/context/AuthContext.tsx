@@ -79,15 +79,16 @@ export function AuthProvider({
 
     const token =
       gerarBasicToken(email, senha);
+    console.log(token);
+    const response = await api({
+      method: "GET",
 
-    const response = await api.get(
-      "/usuarios/me",
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+      url: "/usuarios/me",
+
+      headers: {
+        Authorization: token,
+      },
+    });
 
     localStorage.setItem(
       "token",
