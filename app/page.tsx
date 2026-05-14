@@ -5,16 +5,10 @@ import { Input } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-<<<<<<< HEAD
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import styles from "@/components/ConjuntosCss/CadastrarUsuario.module.css";
-=======
 import Link from "next/link"
 import { useAuth } from "../app/context/AuthContext";
 import styles from "@/components/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
 
->>>>>>> 2ac094510826f94d801ff441fae38d58de083d99
 
 export default function CadastrarUsuario() {
 
@@ -51,7 +45,7 @@ export default function CadastrarUsuario() {
       <div className={styles.painelCadastrar}>
         <div className={styles.containerCabecalho}>
           <Image
-            className={styleCadastrar.containerImagem}
+            className={styles.containerImagem}
             src={Logo}
             alt="Logo"
             width={200}
