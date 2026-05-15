@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "../app/context/AuthContext";
 
 export const metadata: Metadata = {
   title: "GESTORX",
@@ -17,9 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR">
       <body className="antialiased bg-gray-100 text-black">
         <div className="flex min-h-screen items-center justify-center">
-          <AuthProvider>
-            {children}
-          </AuthProvider>
+          {children}
         </div>
       </body>
     </html>
