@@ -70,7 +70,7 @@
     text-decoration: underline;
 }
 
-containerLinks {
+.containerLinks {
     color: #ebbd25;
     text-decoration: underline;
     transition: 200ms ease-in-out;
