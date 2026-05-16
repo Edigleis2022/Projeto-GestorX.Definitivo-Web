@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "../app/context/AuthContext";
+
+
+import styles from "@/ConjuntosCss/TelasCss/Layout.module.css";
 
 export const metadata: Metadata = {
   title: "GESTORX",
@@ -20,11 +23,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="antialiased bg-gray-100 text-black">
-        <AuthProvider>
-          <div className="flex min-h-screen items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
+          <AuthProvider>
             {children}
-          </div>
-        </AuthProvider>
+          </AuthProvider>
+=========
+      <body className={styles.containerBody}>
+        <div className={styles.containerChildren}>
+          {children}
+>>>>>>>>> Temporary merge branch 2
+        </div>
       </body>
     </html>
   );
