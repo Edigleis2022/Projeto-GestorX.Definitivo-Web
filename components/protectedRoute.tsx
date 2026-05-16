@@ -30,6 +30,7 @@ export default function ProtectedRoute({
   }, [
     autenticado,
     loading,
+    router,
   ]);
 
   if (loading) {

@@ -6,8 +6,9 @@ import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import styles from "@/components/ConjuntosCss/CadastrarUsuario.module.css";
+//import { useRouter } from "next/navigation";
+import styles from "@/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
+import { useAuth } from "./context/AuthContext";
 
 export default function CadastrarUsuario() {
 
@@ -44,7 +45,7 @@ export default function CadastrarUsuario() {
       <div className={styles.painelCadastrar}>
         <div className={styles.containerCabecalho}>
           <Image
-            className={styleCadastrar.containerImagem}
+            className={styles.containerImagem}
             src={Logo}
             alt="Logo"
             width={200}

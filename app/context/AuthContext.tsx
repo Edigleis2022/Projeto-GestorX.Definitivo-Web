@@ -6,8 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-
-import { useRouter } from "next/navigation";
+ 
 import { api } from "@/lib/api";
 import { gerarBasicToken } from "@/lib/auth";
 import { Usuario } from "@/types/usuario";
@@ -37,8 +36,6 @@ export function AuthProvider({
   children: React.ReactNode;
 }) {
 
-  const router = useRouter();
-
   const [usuario, setUsuario] =
     useState<Usuario | null>(null);
 
@@ -48,64 +45,68 @@ export function AuthProvider({
   const [loading, setLoading] =
   useState(true);
 
-  useEffect(() => {
+ useEffect(() => {
 
-    const tokenStorage =
-      localStorage.getItem("token");
+  console.log("AUTH CONTEXT EXECUTOU");
 
-    const usuarioStorage =
-      localStorage.getItem("usuario");
+  const tokenStorage =
+    localStorage.getItem("token");
 
-    if (
-      tokenStorage &&
-      usuarioStorage
-    ) {
+  const usuarioStorage =
+    localStorage.getItem("usuario");
 
-      setToken(tokenStorage);
+  console.log("TOKEN:", tokenStorage);
+  console.log("USUARIO:", usuarioStorage);
 
-      setUsuario(
-        JSON.parse(usuarioStorage)
-      );
-    }
-
-    setLoading(false);
-
-  }, []);
-
-  async function login(
-    email: string,
-    senha: string
+  if (
+    tokenStorage &&
+    usuarioStorage
   ) {
 
-    const token =
-      gerarBasicToken(email, senha);
-    console.log(token);
-    const response = await api({
-      method: "GET",
+    setToken(tokenStorage);
 
-      url: "/usuarios/me",
-
-      headers: {
-        Authorization: token,
-      },
-    });
-
-    localStorage.setItem(
-      "token",
-      token
+    setUsuario(
+      JSON.parse(usuarioStorage)
     );
-
-    localStorage.setItem(
-      "usuario",
-      JSON.stringify(response.data)
-    );
-
-    setToken(token);
-
-    setUsuario(response.data);
-
-    router.push("/telas/TelaPrincipal");
   }
+
+  setLoading(false);
+
+}, []);
+
+  async function login(
+  email: string,
+  senha: string
+) {
+
+  const token =
+    gerarBasicToken(email, senha);
+
+  const response = await api({
+    method: "GET",
+    url: "/usuarios/me",
+    headers: {
+      Authorization: token,
+    },
+  }); 
+
+  localStorage.setItem(
+    "token",
+    token
+  );
+
+  localStorage.setItem(
+    "usuario",
+    JSON.stringify(response.data)
+  );
+
+  setToken(token);
+
+  setUsuario(response.data);
+
+  window.location.href =
+    "/telas/TelaPrincipal";
+}
 
   function logout() {
 
@@ -117,7 +118,8 @@ export function AuthProvider({
 
     setUsuario(null);
 
-    router.push("/");
+      window.location.href =
+      "/";
   }
 
   return (
