@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { AuthProvider } from "../app/context/AuthContext";
-
-
 import styles from "@/ConjuntosCss/TelasCss/Layout.module.css";
 
 export const metadata: Metadata = {
