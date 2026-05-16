@@ -5,7 +5,7 @@ import { Button } from "@/components/button";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-import { Input } from "@/components/inputandLabel";
+import { InputandLabel } from "@/components/inputandLabel";
 
 export default function AcessarProduto() {
   const [categoria, setCategoria] = useState("");
@@ -81,7 +81,7 @@ export default function AcessarProduto() {
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Produto:</label>
-            <Input
+            <InputandLabel
               label="Produto"
               placeholder="Digite nome, código ou categoria"
               value={produto}

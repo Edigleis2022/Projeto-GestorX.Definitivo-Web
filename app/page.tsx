@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "@/components/input";
 import { InputandLabel } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import Image from "next/image";
@@ -54,11 +55,11 @@ export default function CadastrarUsuario() {
             id="user-email"
             label="E-mail"
             type="email"
-            placeholder=" "
+            placeholder="Digite seu e-mail"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className={styles.containerElementoInput}
-            containerClassName={styles.containerElementoInput}
+            className={styleInput.containerElementoInput}
+            containerClassName={styleInput.containerElementoContainer}
           />
           <InputandLabel
             id="user-password"
@@ -67,8 +68,8 @@ export default function CadastrarUsuario() {
             placeholder=" "
             value={form.senha}
             onChange={(e) => setForm({ ...form, senha: e.target.value })}
-            className={styles.containerElementoInput}
-            containerClassName={styles.containerElementoInput}
+            className={styleInput.containerElementoInput}
+            containerClassName={styleInput.containerElementoContainer}
           />
         </div>
 

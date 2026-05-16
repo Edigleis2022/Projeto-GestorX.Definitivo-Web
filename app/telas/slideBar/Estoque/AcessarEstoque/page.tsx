@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/button";
-import { Input } from "@/components/inputandLabel";
+import { InputandLabel } from "@/components/inputandLabel";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
@@ -83,7 +83,7 @@ export default function AccessStock() {
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Produto:</label>
-            <Input
+            <InputandLabel
               placeholder="Digite o nome do produto"
               value={product}
               onChange={(e) => setProduct(e.target.value)}
