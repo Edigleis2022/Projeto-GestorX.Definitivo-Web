@@ -11,7 +11,12 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClassName?: string;
 }
 
-export function InputandLabel({ label, className, containerClassName, id, ...props }: InputProps) {
+export function InputandLabel({ label, 
+  className, 
+  containerClassName, 
+  id, ...props }: InputProps) {
+
+    
   return (
     <div className={`input-container ${containerClassName || ''}`}>
       <input

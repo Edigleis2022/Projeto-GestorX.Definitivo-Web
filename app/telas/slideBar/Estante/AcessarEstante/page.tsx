@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/button";
-import { Input } from "@/components/inputandLabel";
+import { InputandLabel } from "@/components/inputandLabel";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
@@ -79,7 +79,7 @@ export default function AcessarEstante() {
 
           <div className="flex flex-col">
             <label className="font-semibold mb-1">Item:</label>
-            <Input
+            <InputandLabel
               placeholder="Digite o nome do item"
               value={item}
               onChange={(e) => setItem(e.target.value)}

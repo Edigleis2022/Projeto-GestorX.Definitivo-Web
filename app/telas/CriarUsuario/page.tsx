@@ -6,7 +6,7 @@ import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
-import styleCriarUsuario from "@/ConjuntosCss/TelasCss/CriarUsuario.module.css";
+import EstruturaTelasIniciais from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css";
 import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 
 export default function CriarUsuario() { 
@@ -46,19 +46,19 @@ export default function CriarUsuario() {
 }
 
   return (
-    <main className={styleEstrutura.containerPrincipal}>
-      <div className={styleEstrutura.containerCriarUsuario}>
-        <div className={styleEstrutura.containerCabecalhoLogo}>
-          <Link href="/" className={styleEstrutura.containerLinkLogo}>
+    <main className={EstruturaTelasIniciais.containerPrincipal}>
+      <div className={EstruturaTelasIniciais.containerCriarUsuario}>
+        <div className={EstruturaTelasIniciais.containerCabecalhoLogo}>
+          <Link href="/" className={EstruturaTelasIniciais.containerLinkLogo}>
             <Image
-              className={styleEstrutura.containerImageLogo}
+              className={EstruturaTelasIniciais.containerImageLogo}
               src={Logo}
               alt="Logo"
               width={200}
               height={300}
             />
           </Link>
-          <h1 className={styleEstrutura.containerLinkTexto}>Criar Novo Usuario</h1>
+          <h1 className={EstruturaTelasIniciais.containerLinkTexto}>Criar Novo Usuario</h1>
         </div>
 
         <div className={styleInput.containerOrdenaçãoInputs}>

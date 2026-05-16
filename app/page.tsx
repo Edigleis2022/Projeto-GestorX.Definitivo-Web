@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Input } from "@/components/input";
 import { InputandLabel } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import Image from "next/image";
@@ -54,7 +55,7 @@ export default function CadastrarUsuario() {
             id="user-email"
             label="E-mail"
             type="email"
-            placeholder=" "
+            placeholder="Digite seu e-mail"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             className={styleInput.containerElementoInput}
