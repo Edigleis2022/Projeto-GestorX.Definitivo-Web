@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import { Button } from "@/components/button";
-import { Input } from "@/components/input";
+import { Input } from "@/components/inputandLabel";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 
-export default function AcessarEstoque() {
-  const [categoria, setCategoria] = useState("");
-  const [tipoBusca, setTipoBusca] = useState("");
-  const [produto, setProduto] = useState("");
+export default function AccessStock() {
+  const [category, setCategory] = useState("");
+  const [searchType, setSearchType] = useState("");
+  const [product, setProduct] = useState("");
 
   return (
     <main className="flex flex-col items-center min-h-screen w-full bg-white">
@@ -49,8 +49,8 @@ export default function AcessarEstoque() {
             <label className="font-semibold mb-1">Buscar por:</label>
             <select
               className="border border-gray-400 rounded-md p-2"
-              value={categoria}
-              onChange={(e) => setCategoria(e.target.value)}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Selecione</option>
               <option value="nome">Nome do Produto</option>
@@ -68,8 +68,8 @@ export default function AcessarEstoque() {
             <label className="font-semibold mb-1">Tipo de busca:</label>
             <select
               className="border border-gray-400 rounded-md p-2"
-              value={tipoBusca}
-              onChange={(e) => setTipoBusca(e.target.value)}
+              value={searchType}
+              onChange={(e) => setSearchType(e.target.value)}
             >
               <option value="">Selecione</option>
               <option value="contem">Contém</option>
@@ -85,8 +85,8 @@ export default function AcessarEstoque() {
             <label className="font-semibold mb-1">Produto:</label>
             <Input
               placeholder="Digite o nome do produto"
-              value={produto}
-              onChange={(e) => setProduto(e.target.value)}
+              value={product}
+              onChange={(e) => setProduct(e.target.value)}
             />
           </div>
 
