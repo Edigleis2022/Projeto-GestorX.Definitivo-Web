@@ -7,6 +7,22 @@ import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
 
+const styleCriarUsuario = {
+  containerPrincipal: "",
+  containerCriarUsuario: "",
+  containerCabecalhoLogo: "",
+  containerLinkLogo: "",
+  containerImageLogo: "",
+  containerLinkTexto: "",
+};
+
+const styleInput = {
+  containerOrdenaçãoInputs: "",
+  containerInputs: "",
+  containerElementoInput: "",
+  containerElementoContainer: "",
+};
+
 export default function CriarUsuario() {
   const [form, setForm] = useState({
     nome: "",

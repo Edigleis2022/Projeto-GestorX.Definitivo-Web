@@ -23,15 +23,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="antialiased bg-gray-100 text-black">
-        <div className="flex min-h-screen items-center justify-center">
+        <div className={styles.containerChildren}>
           <AuthProvider>
             {children}
           </AuthProvider>
-=========
-      <body className={styles.containerBody}>
-        <div className={styles.containerChildren}>
-          {children}
->>>>>>>>> Temporary merge branch 2
         </div>
       </body>
     </html>

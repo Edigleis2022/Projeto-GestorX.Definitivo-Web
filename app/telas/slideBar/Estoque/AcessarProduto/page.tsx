@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/button";
-import { Input } from "@/components/input";
+import { Input } from "@/components/inputandLabel";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";

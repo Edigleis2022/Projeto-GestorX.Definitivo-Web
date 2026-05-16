@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Input } from "@/components/input";
+import { Input } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import PerfilIcon from "@/public/Perfil-Icon.png";
 import Logo from "@/public/Logo.png";

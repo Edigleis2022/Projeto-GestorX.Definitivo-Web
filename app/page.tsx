@@ -5,17 +5,9 @@ import { Input } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-<<<<<<< HEAD
 import Link from "next/link";
-//import { useRouter } from "next/navigation";
 import styles from "@/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
 import { useAuth } from "./context/AuthContext";
-=======
-import Link from "next/link"
-import { useAuth } from "../app/context/AuthContext";
-import styles from "@/components/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
-
->>>>>>> 1087bf64e2febe2ce3b2a7ca60d44c9e9d637a18
 
 export default function CadastrarUsuario() {
 
