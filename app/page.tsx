@@ -1,21 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/inputandLabel";
+import { InputandLabel } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
-import styles from "@/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
-import { useAuth } from "./context/AuthContext";
+import { useRouter } from "next/navigation";
+import styleCadastrar from "@/ConjuntosCss/TelasCss/CadastrarUsuario.module.css";
+import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 
 export default function CadastrarUsuario() {
-
-    const {
-    logout,
-    usuario,
-  } = useAuth();
-  const { login } = useAuth();
+  const router = useRouter();
 
   const [form, setForm] = useState({
     email: "",
@@ -40,20 +36,20 @@ export default function CadastrarUsuario() {
   }
 
   return (
-    <main className={styles.mainCadastrar}>
-      <div className={styles.painelCadastrar}>
-        <div className={styles.containerCabecalho}>
+    <main className={styleCadastrar.containerPrincipal}>
+      <div className={styleCadastrar.painelCadastrar}>
+        <div className={styleCadastrar.containerCabecalho}>
           <Image
-            className={styles.containerImagem}
+            className={styleCadastrar.containerImagem}
             src={Logo}
             alt="Logo"
             width={200}
             height={300}
           />
-          <h1 className={styles.tituloCabecalho}>Cadastrar Usuario</h1>
+          <h1 className={styleCadastrar.tituloCabecalho}>Cadastrar Usuario</h1>
         </div>
 
-        <div className={styles.containerInputs}>
+        <div className={styleInput.containerInputs}>
           <Input
             id="user-email"
             label="E-mail"
@@ -64,8 +60,7 @@ export default function CadastrarUsuario() {
             className={styles.containerElementoInput}
             containerClassName={styles.containerElementoInput}
           />
-
-          <Input
+          <InputandLabel
             id="user-password"
             label="Senha"
             type="password"
@@ -75,23 +70,19 @@ export default function CadastrarUsuario() {
             className={styles.containerElementoInput}
             containerClassName={styles.containerElementoInput}
           />
-
         </div>
 
-        <div className={styles.containerConjuntoLinks}>
-          <Link href="/telas/CriarUsuario" className={styles.containerLinks}>
+        <div className={styleCadastrar.containerConjuntoLinks}>
+          <Link href="/telas/CriarUsuario" className={styleCadastrar.containerLinks}>
             Criar Novo Usuario
           </Link>
-          <Link href="/telas/RedefinirSenha" className={styles.containerLinks}>
+          <Link href="/telas/RedefinirSenha" className={styleCadastrar.containerLinks}>
             Redefinir Senha
           </Link>
 
         </div>
 
-        <Button onClick={entrar}>
-          Entrar
-        </Button>
-
+        <Button onClick={entrar}>Cadastrar</Button>
       </div>
 
     </main>
