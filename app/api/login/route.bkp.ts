@@ -21,6 +21,8 @@ export async function POST(req: Request) {
     where: { email },
   });
 
+  console.log("USUARIO:", usuario);
+
   if (!usuario) {
     return NextResponse.json(
       { error: "Usuario nao encontrado." },
