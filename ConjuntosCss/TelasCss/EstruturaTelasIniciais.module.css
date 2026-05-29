@@ -72,16 +72,14 @@
 
 .containerLinks {
     color: #ebbd25;
-
     text-decoration: underline;
     transition: 200ms ease-in-out;
 }
 
 .containerLinks:hover {
-    color: #af691e;
+    color: #d27e24;
     transform: scale(1.1);
 }
-
 
 .containerCriarUsuario {
     width: 100%;

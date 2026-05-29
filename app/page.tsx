@@ -1,41 +1,41 @@
 "use client";
 
 import { useState } from "react";
-import { InputandLabel } from "@/components/inputandLabel";
+import { InputandLabel } from "@/components/inputandLabel"; 
 import { Button } from "@/components/button";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css";
+import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css"; 
 import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 
 export default function CadastrarUsuario() {
-  const router = useRouter();
-  const [form, setForm] = useState({
+  const router = useRouter(); 
+  const [form, setForm] = useState({ 
     email: "",
     senha: "",
   });
 
-  async function entrar() {
+  async function entrar() { 
     const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      method: "POST", 
+      headers: { "Content-Type": "application/json" }, 
+      body: JSON.stringify(form), 
     });
 
-    const data = await response.json();
+    const data = await response.json(); 
 
     if (!response.ok) {
       alert(data.error ?? "Nao foi possivel acessar sua conta.");
       return;
     }
 
-    router.push("/telas/TelaPrincipal");
+    router.push("/telas/TelaPrincipal"); 
   }
 
-  return (
+  return ( 
     <main className={styleEstrutura.containerPrincipal}>
       <div className={styleEstrutura.containerCadastrar}>
         <div className={styleEstrutura.containerCabecalho}>

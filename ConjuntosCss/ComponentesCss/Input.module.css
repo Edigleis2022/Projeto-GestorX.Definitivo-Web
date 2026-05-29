@@ -1,114 +1,76 @@
 .containerInputs {
-  /* Grid para organizar os inputs (container principal dos inputs) */
   display: grid;
-  /* 1 coluna que se ajusta ao tamanho disponível */
   grid-template-columns: repeat(1, minmax(1, 1fr));
-  /* Espaçamento vertical entre os elementos do grid */
   gap: 2rem;
 }
 
+.containerComponenteinput:hover {
+  border: 1px solid #fbd26c;
+  background-color: #c5961f;
+}
+
 .containerOrdenaçãoInputs {
-  /* Grid para organizar inputs em modo “ordenação” */
   display: grid;
-  /* 1 coluna por padrão */
   grid-template-columns: repeat(1, 1fr);
-  /* Espaço entre itens */
   gap: 1rem;
 }
 
 @media (min-width: 768px) {
-  /* Aplica estilos quando a tela tiver no mínimo 768px */
-
   .containerOrdenaçãoInputs {
-    /* Muda para 2 colunas em telas maiores */
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    /* Aumenta o espaçamento entre itens */
     gap: 1.5rem;
   }
 }
 
 .containerElementoInput {
-  /* Largura do input ocupando o container */
   width: 100%;
-  /* Espaçamento interno do input */
   padding: 12px;
-  /* Borda do input */
   border: 1px solid #8f6908;
-  /* Bordas arredondadas */
   border-radius: 6px;
-  /* Remove outline padrão */
   outline: none;
-  /* Fundo transparente (deixa ver o fundo do container/página) */
   background-color: transparent;
-  /* Animação suave na mudança de cor/borda */
   transition: border-color 0.2s ease;
 }
 
 .containerElementoInput:focus {
-  /* Quando o input está em foco, destaca a borda */
   border-color: #f6c43b;
 }
 
 .containerElementoInput:focus~label,
-/* Quando o input está focado, aplica estilos na label irmã */
 .containerElementoInput:not(:placeholder-shown)~label {
-  /* Quando NÃO está placeholder-shown (ou seja, tem conteúdo), também move/estiliza a label */
-
-  /* Sobe a label para o topo */
   top: 0;
-  /* Ajusta tamanho da fonte para estado “encolhido” */
   font-size: 12px;
-  /* Cor do texto da label nesse estado */
   color: #634805;
-  /* Fundo branco para dar contraste */
-  background-color: #e9ae6e;;
-  /* Borda da label nesse estado */
+  background-color: #e9ae6e;
   border: 1px solid #af691e;
-  /* Arredonda a label */
   border-radius: 5px;
-  /* Padding interno */
   padding: 0 4px;
-  /* Ajuste vertical em relação ao posicionamento base */
   transform: translateY(-50%);
 }
 
 .containerElementoContainer {
-  /* Permite posicionar label/input usando contexto relativo */
   position: relative;
-  /* Largura ocupando tudo */
   width: 100%;
-  /* Espaçamento superior entre elementos */
   margin-top: 10px;
 }
 
 .containerElementoContainer label {
-  /* Label posicionada sobre o input (efeito floating label) */
   position: absolute;
-  /* Alinha à esquerda */
   left: 12px;
-  /* Começa no meio vertical do container */
   top: 50%;
-  /* Centraliza verticalmente */
   transform: translateY(-50%);
-  /* Cor inicial da label */
   color: #5c5a56;
-  /* Transição suave em mudanças de estilo */
   transition: all 0.2s ease;
-  /* Não bloqueia cliques (melhor UX) */
   pointer-events: none;
-  /* Transparente para não cobrir o input */
   background-color: transparent;
 }
 
 .containerPrincipal {
-  /* Contexto para posicionar elementos filhos */
   position: relative;
-  /* Largura total */
   width: 100%;
 }
 
 .containerComponenteinput {
-  /* Estilos do input do componente (variante “padrão”) */
   width: 100%;
   border: 1px solid #D1D5DB;
   border-radius: 6px;
@@ -119,20 +81,18 @@
 }
 
 .containerLabel {
-  /* Label “flutuante” do componente */
-  position: absolute; /* posiciona relativo ao container */
-  left: 12px; /* offset horizontal */
-  top: 50%; /* começa no meio */
-  transform: translateY(-50%); /* centraliza */
-  color: #6b7280; /* cor inicial */
-  pointer-events: none; /* não interfere em cliques */
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  pointer-events: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: transparent;
   padding: 0 0.25rem;
 }
 
 .input-field:focus~.containerLabel {
-  /* Quando o input (com classe .input-field) está em foco, move a label */
   top: 0;
   font-size: 0.75rem;
   color: #3b82f6;
@@ -142,7 +102,6 @@
 }
 
 .input-field:not(:placeholder-shown)~.containerLabel {
-  /* Quando o input não está vazio (placeholder não aparece), mantém label no topo */
   top: 0;
   font-size: 0.75rem;
   background-color: #ffffff;
@@ -150,3 +109,10 @@
   padding-right: 0.25rem;
 }
 
+.containerElementoInput:hover {
+  color: #fad57a;
+}
+
+.containerPrincipal:hover .containerLabel {
+  color: #fbbf24;
+}

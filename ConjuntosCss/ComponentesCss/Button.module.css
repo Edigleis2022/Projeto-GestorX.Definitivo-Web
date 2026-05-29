@@ -13,7 +13,8 @@
 }
 
 .containerbotao:hover {
-  background-color: #d1d5db;
+  color: #ffffff;
+  background-color: #d27e24;
   font-size: 18px;
   transform: scale(1.1);
 }
