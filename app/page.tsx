@@ -1,42 +1,42 @@
 "use client";
 
 import { useState } from "react";
-import { InputandLabel } from "@/components/inputandLabel"; 
+import { InputandLabel } from "@/components/inputandLabel";
 import { Button } from "@/components/button";
+import LinkInfo from "@/components/linkInfo";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css"; 
+import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css";
 import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 import styleLinkInfo from "@/ConjuntosCss/ComponentesCss/LinksInfo.module.css";
 
 export default function CadastrarUsuario() {
-  const router = useRouter(); 
-  const [form, setForm] = useState({ 
+  const router = useRouter();
+  const [form, setForm] = useState({
     email: "",
     senha: "",
   });
 
-  async function entrar() { 
+  async function entrar() {
     const response = await fetch("/api/login", {
-      method: "POST", 
-      headers: { "Content-Type": "application/json" }, 
-      body: JSON.stringify(form), 
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
     });
 
-    const data = await response.json(); 
+    const data = await response.json();
 
     if (!response.ok) {
       alert(data.error ?? "Nao foi possivel acessar sua conta.");
       return;
     }
 
-    router.push("/telas/TelaPrincipal"); 
+    router.push("/telas/TelaPrincipal");
   }
 
-  return ( 
+  return (
     <main className={styleEstrutura.containerPrincipal}>
       <div className={styleEstrutura.containerCadastrar}>
         <div className={styleEstrutura.containerCabecalho}>
@@ -74,12 +74,8 @@ export default function CadastrarUsuario() {
         </div>
 
         <div className={styleLinkInfo.containerConjuntoLinks}>
-          <Link href="/telas/CriarUsuario" className={styleLinkInfo.containerLinks}>
-            Criar Novo Usuario
-          </Link>
-          <Link href="/telas/RedefinirSenha" className={styleLinkInfo.containerLinks}>
-            Redefinir Senha
-          </Link>
+          <LinkInfo modo="link" href="/telas/CriarUsuario" text="Criar Novo Usuario" />
+          <LinkInfo modo="link" href="/telas/RedefinirSenha" text="Redefinir Senha" />
         </div>
 
         <Button onClick={entrar}>Entrar</Button>

@@ -4,11 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
 import { InputandLabel } from "@/components/inputandLabel";
+import LinkInfo from "@/components/linkInfo";
 import { Button } from "@/components/button";
 import Link from "next/link";
 
-import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css";
+import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
+import styleLinkInfo from "@/ConjuntosCss/ComponentesCss/LinksInfo.module.css";
 
 export default function RedefinirSenha() {
   const [email, setEmail] = useState("");
@@ -54,13 +56,17 @@ export default function RedefinirSenha() {
             />
           </div>
 
-          <div className={styleEstrutura.containerConjuntoLinks}>
-          {/*  <p className={styleEstrutura.containerLinks}>
-              📧 Um e-mail de confirmação será enviado para o endereço informado com as instruções para redefinição da sua senha.
-            </p>
-            <p className={styleEstrutura.containerLinks}>
-              🔒 Dica: sua nova senha deve ter no mínimo 8 caracteres, incluindo letras maiúsculas, minúsculas, números e um caractere especial (ex: @, #, !).
-            </p> */}
+          <div className={styleLinkInfo.containerConjuntoLinks}>
+            <LinkInfo
+              modo="icone"
+              icon="📧"
+              text="Um e-mail de confirmação será enviado com as instruções para redefinição da sua senha."
+            />
+            <LinkInfo
+              modo="icone"
+              icon="🔒"
+              text="Dica: mínimo 8 caracteres, com maiúsculas, minúsculas, números e um caractere especial (ex: @, #, !)."
+            />
           </div>
 
           <Button onClick={() => alert(`Agora a sua senha é: ${novaSenha}`)}>Acessar</Button>
