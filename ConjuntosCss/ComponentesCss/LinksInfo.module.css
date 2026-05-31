@@ -1,37 +1,38 @@
 .containerConjuntoLinks {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: #2563eb;
-    text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #2563eb;
+  text-decoration: underline;
 }
 
 .containerLinks {
-    color: #ebbd25;
-    text-decoration: underline;
-    transition: 200ms ease-in-out;
+  color: #ebbd25;
+  text-decoration: underline;
+  transition: 200ms ease-in-out;
 }
 
 .containerLinks:hover {
-    color: #d27e24;
-    transform: scale(1.1);
+  color: #d27e24;
+  transform: scale(1.1);
 }
 
 .containerConjuntoInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    color: #2563eb;
-    text-decoration: underline;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #2563eb;
+  text-decoration: underline;
 }
 
 .containerConjuntoInfo>*+* {
-    margin-top: 1.25rem;
+  margin-top: 1.25rem;
 }
+
 .containerConjuntoLinks {
   display: flex;
   flex-direction: column;
@@ -40,12 +41,13 @@
 
 .containerLinks {
   font-size: 0.875rem;
-  color: #555;
+  color: #bea25c;
   text-decoration: none;
 }
 
 .containerLinks:hover {
-  text-decoration: underline;
+  transform: scale(1.1);
+  color: #e1ac70;
 }
 
 .containerInfos {
@@ -67,19 +69,19 @@
 
 .icone:hover {
   transform: scale(1.2);
-  background-color:#ebbd25;
+  background-color: #ebbd25;
   border: 1px solid #d27e24;
 }
 
 .texto {
   font-size: 0.875rem;
-  color: #555;
+  color: #d97706;
   max-width: 0;
   overflow: hidden;
   white-space: nowrap;
   opacity: 0;
   transition: max-width 0.4s ease, opacity 0.3s ease;
-  background-color:#ebbd25;
+  background-color: #ebbd25;
   border: 1px solid #d27e24;
 }
 
