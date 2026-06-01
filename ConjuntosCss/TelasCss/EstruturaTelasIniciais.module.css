@@ -103,3 +103,9 @@
     font-weight: 600;
     color: #000000;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

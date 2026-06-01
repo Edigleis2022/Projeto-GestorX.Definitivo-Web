@@ -51,19 +51,19 @@
 }
 
 .texto {
-  font-size: 0.875rem;
+  font-size: 0.8rem; 
   color: #d97706;
-  max-width: 100%;
-  max-height: 0;
-  overflow: hidden;
+  max-width: 100%; 
+  max-height: 0; 
+  overflow: hidden; 
   overflow-wrap: anywhere;
-  white-space: normal;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+  white-space: normal; 
+  opacity: 0; 
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease; 
   background-color: #ebbd25;
   border: 1px solid transparent;
   border-radius: 4px;
-  line-height: 1.3;
+  line-height: 1.2;
   padding: 0 6px;
 }
 
