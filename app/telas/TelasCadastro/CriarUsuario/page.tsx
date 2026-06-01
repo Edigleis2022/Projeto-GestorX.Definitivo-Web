@@ -13,32 +13,25 @@ import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.modul
 export default function CriarUsuario() { 
   const [form, setForm] = useState({
     nome: "",
-    cpf: "",
     email: "",
-    senha: "",
     cargo: "",
-    estabelecimento: "",
   });
+  const [mensagem, setMensagem] = useState("");
+  const [tipoMensagem, setTipoMensagem] = useState<"erro" | "sucesso">("sucesso");
 
   function atualizar(campo: string, valor: string) {
     setForm({ ...form, [campo]: valor });
   }
 
-  async function criarConta() {
-    const response = await fetch("/api/usuarios", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      alert(data.error ?? "Nao foi possivel criar o usuario.");
+  function criarContaDemonstracao() {
+    if (!form.nome || !form.email || !form.cargo) {
+      setTipoMensagem("erro");
+      setMensagem("Preencha os campos da demonstracao.");
       return;
     }
 
-    alert("Novo usuario criado com sucesso!");
+    setTipoMensagem("sucesso");
+    setMensagem("Usuario de demonstracao pronto para acessar o sistema.");
   }
 
   return (
@@ -54,7 +47,7 @@ export default function CriarUsuario() {
               height={300}
             />
           </Link>
-          <h1 className={styleEstrutura.containerLinkTexto}>Criar Novo Usuario</h1>
+          <h1 className={styleEstrutura.containerLinkTexto}>Demonstracao do Sistema</h1>
         </div>
 
         <div className={styleInput.containerOrdenaçãoInputs}>
@@ -64,14 +57,6 @@ export default function CriarUsuario() {
               value={form.nome}
               placeholder=" "
               onChange={(e) => atualizar("nome", e.target.value)}
-              className={styleInput.containerElementoInput}
-              containerClassName={styleInput.containerElementoContainer}
-            />
-            <InputandLabel
-              label="CPF"
-              value={form.cpf}
-              placeholder=" "
-              onChange={(e) => atualizar("cpf", e.target.value)}
               className={styleInput.containerElementoInput}
               containerClassName={styleInput.containerElementoContainer}
             />
@@ -88,15 +73,6 @@ export default function CriarUsuario() {
 
           <div className={styleInput.containerInputs}>
             <InputandLabel
-              label="Senha"
-              type="password"
-              value={form.senha}
-              placeholder=" "
-              onChange={(e) => atualizar("senha", e.target.value)}
-              className={styleInput.containerElementoInput}
-              containerClassName={styleInput.containerElementoContainer}
-            />
-            <InputandLabel
               label="Cargo"
               value={form.cargo}
               placeholder=" "
@@ -104,18 +80,22 @@ export default function CriarUsuario() {
               className={styleInput.containerElementoInput}
               containerClassName={styleInput.containerElementoContainer}
             />
-            <InputandLabel
-              label="Estabelecimento"
-              value={form.estabelecimento}
-              placeholder=" "
-              onChange={(e) => atualizar("estabelecimento", e.target.value)}
-              className={styleInput.containerElementoInput}
-              containerClassName={styleInput.containerElementoContainer}
-            />
           </div>
         </div>
 
-        <Button onClick={criarConta}>Criar Conta</Button>
+        {mensagem && (
+          <p
+            className={
+              tipoMensagem === "sucesso"
+                ? styleEstrutura.mensagemSucesso
+                : styleEstrutura.mensagemErro
+            }
+          >
+            {mensagem}
+          </p>
+        )}
+
+        <Button type="button" onClick={criarContaDemonstracao}>Criar Demonstracao</Button>
       </div>
     </main>
   );

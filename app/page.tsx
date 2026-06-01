@@ -18,22 +18,27 @@ export default function CadastrarUsuario() {
     email: "",
     senha: "",
   });
+  const [mensagem, setMensagem] = useState("");
+  const [tipoMensagem, setTipoMensagem] = useState<"erro" | "sucesso">("erro");
+  const [carregando, setCarregando] = useState(false);
 
-  async function entrar() {
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+  function entrar() {
+    setMensagem("");
+    setCarregando(true);
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      alert(data.error ?? "Nao foi possivel acessar sua conta.");
+    if (form.email !== "usuario123@gmail" || form.senha !== "12345") {
+      setTipoMensagem("erro");
+      setMensagem("E-mail ou senha incorretos.");
+      setCarregando(false);
       return;
     }
 
-    router.push("/telas/TelaPrincipal");
+    setTipoMensagem("sucesso");
+    setMensagem("Login realizado com sucesso!");
+
+    setTimeout(() => {
+      router.push("/telas/TelaPrincipal");
+    }, 900);
   }
 
   return (
@@ -74,11 +79,25 @@ export default function CadastrarUsuario() {
         </div>
 
         <div className={styleLinkInfo.containerConjuntoLinks}>
-          <LinkInfo modo="link" href="/telas/CriarUsuario" text="Criar Novo Usuario" />
-          <LinkInfo modo="link" href="/telas/RedefinirSenha" text="Redefinir Senha" />
+          <LinkInfo modo="link" href="/telas/TelasCadastro/CriarUsuario" text="Criar Novo Usuario" />
+          <LinkInfo modo="link" href="/telas/TelasCadastro/RedefinirSenha" text="Redefinir Senha" />
         </div>
 
-        <Button onClick={entrar}>Entrar</Button>
+        {mensagem && (
+          <p
+            className={
+              tipoMensagem === "sucesso"
+                ? styleEstrutura.mensagemSucesso
+                : styleEstrutura.mensagemErro
+            }
+          >
+            {mensagem}
+          </p>
+        )}
+
+        <Button type="button" onClick={entrar} disabled={carregando}>
+          {carregando ? "Entrando..." : "Entrar"}
+        </Button>
       </div>
     </main>
   );
