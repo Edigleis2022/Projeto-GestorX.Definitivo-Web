@@ -56,7 +56,7 @@ export default function RedefinirSenha() {
             />
           </div>
 
-          <div className={styleLinkInfo.containerConjuntoLinks}>
+          <div className={styleLinkInfo.containerConjuntoInfo}>
             <LinkInfo
               modo="icone"
               icon="📧"
