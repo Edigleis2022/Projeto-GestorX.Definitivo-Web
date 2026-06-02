@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { X, User, Box, ShoppingCart} from "lucide-react";
+import { X, User, Box, ShoppingCart } from "lucide-react";
 import SlideBarPerfil from "../Perfil/page";
 import SlideBarEstoque from "../Estoque/page";
 import SlideBarEstante from "../Estante/page";
 import SlideBarContatos from "../Contatos/page";
 import IconButtonSlideBar from "@/components/iconButton/IconButtonSlideBar";
+
+import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 interface Props {
   isOpen: boolean;
@@ -21,16 +23,12 @@ export default function SlideBarMenu({ isOpen, onClose }: Props) {
 
   return (
     <>
-      <div
-        className={`border-4 border-amber-800 fixed right-0 top-0 h-full w-64 bg-amber-700 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="p-6">
-          <div className="flex items-center mb-6">
-            <h2 className="flex-1 text-center text-xl font-semibold text-white">Menu</h2>
-            <button onClick={onClose} className="text-white hover:text-gray-300">
-              <X className="w-6 h-6" />
+      <div className={`${styleSlideBar.containerPrincipal} ${isOpen ? styleSlideBar.open : styleSlideBar.closed}`}>
+        <div className={styleSlideBar.containerElementos}>
+          <div className={styleSlideBar.containerElementoBotao}>
+            <h2 className={styleSlideBar.containerTextoElementoBotao}>Menu</h2>
+            <button onClick={onClose} className={styleSlideBar.containerButtonElementoBotao}>
+              <X className={styleSlideBar.containerXElementoBotao}/>
             </button>
           </div>
 
