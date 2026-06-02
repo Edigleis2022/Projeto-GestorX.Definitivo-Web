@@ -1,0 +1,112 @@
+.containerPrincipal {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.containerTelaPrincipal {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.cabecalhoTelaPrincipal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #d97706;
+    color: white;
+    padding: 1.25rem 1.5rem;
+}
+
+.containerLinkTelaPrincipal:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.containerFlechaRetorno {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.containerFlechaRetorno:hover {
+    color: #9ca3af;
+}
+
+.containerBotãoMenu {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.containerBotãoMenu:hover {
+    color: #d1d5db;
+}
+
+.containerBotão:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.containerElementosIconButton {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  text-align: center;
+}
+
+.container FavIcon Button {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+/*return (
+    <main className="flex w-screen min-h-screen bg-white">
+      <section className="flex flex-1 flex-col">
+
+        <header className="flex items-center justify-between bg-ambeFr-700 text-white px-6 py-5">
+          
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <ArrowLeft className="w-6 h-6 cursor-pointer hover:text-gray-400" />
+          </Link>
+
+          <AbaPesquisar query={query} setQuery={setQuery} />
+
+          <button onClick={() => openSidebar("menu")} className="hover:opacity-80 transition-opacity">
+            <Menu className="w-6 h-6 cursor-pointer hover:text-gray-300" />
+          </button>
+        </header>
+
+        <div className="flex flex-1 items-center justify-center">
+          <nav className="grid grid-cols-2 gap-1 space-x-5 py-3 text-center md:grid-cols-3 lg:grid-cols-4">
+            <IconButtonTelaPrincipal icon={User} label="Perfil" onClick={() => openSidebar("perfil")} />
+            <IconButtonTelaPrincipal icon={Box} label="Estoque" onClick={() => openSidebar("estoque")} />
+            <IconButtonTelaPrincipal icon={ShoppingCart} label="Estante" onClick={() => openSidebar("estante")} />
+            <IconButtonTelaPrincipal icon={Phone} label="Contatos" onClick={() => openSidebar("contatos")} />
+          </nav>
+        </div>
+      </section>*/

@@ -23,24 +23,22 @@ export default function TelaPrincipal() {
   return (
     <main className={styleEstrutura.containerPrincipal}>
       <section className={styleEstrutura.containerTelaPrincipal}>
-      // className="flex flex-1 flex-col"
-      >
 
-        <header className="flex items-center justify-between bg-amber-700 text-white px-6 py-5">
+        <header className={styleEstrutura.cabecalhoTelaPrincipal}>
           
-          <Link href="/" className="hover:opacity-80 transition-opacity">
-            <ArrowLeft className="w-6 h-6 cursor-pointer hover:text-gray-400" />
+          <Link href="/" className={styleEstrutura.containerLinkTelaPrincipal}>
+            <ArrowLeft className={styleEstrutura.containerFlechaRetorno} />
           </Link>
 
           <AbaPesquisar query={query} setQuery={setQuery} />
 
-          <button onClick={() => openSidebar("menu")} className="hover:opacity-80 transition-opacity">
+          <button onClick={() => openSidebar("menu")} className={styleEstrutura.containerBotãoMenu}>
             <Menu className="w-6 h-6 cursor-pointer hover:text-gray-300" />
           </button>
         </header>
 
-        <div className="flex flex-1 items-center justify-center">
-          <nav className="grid grid-cols-2 gap-1 space-x-5 py-3 text-center md:grid-cols-3 lg:grid-cols-4">
+        <div className={styleEstrutura.container}>
+          <nav className={styleEstrutura.containerNavIconButton}>
             <IconButtonTelaPrincipal icon={User} label="Perfil" onClick={() => openSidebar("perfil")} />
             <IconButtonTelaPrincipal icon={Box} label="Estoque" onClick={() => openSidebar("estoque")} />
             <IconButtonTelaPrincipal icon={ShoppingCart} label="Estante" onClick={() => openSidebar("estante")} />
