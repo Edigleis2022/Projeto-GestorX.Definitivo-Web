@@ -50,11 +50,11 @@ export default function TelaPrincipal() {
 
             <ItemIconButtonTelaPrincipal icon={Phone} label="Contatos" onClick={() => openSidebar("contatos")}>
               <SlideBarContatos isOpen={activeSidebar === "contatos"} onClose={closeSidebar}  />
-            </ItemIconButtonTelaPrincipal>
+             </ItemIconButtonTelaPrincipal>
           </nav>
         </div>
       </section>
-
+      
     </main>
   );
 }

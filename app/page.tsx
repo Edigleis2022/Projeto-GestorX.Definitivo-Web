@@ -26,7 +26,7 @@ export default function CadastrarUsuario() {
     setMensagem("");
     setCarregando(true);
 
-    if (form.email !== "usuario123@gmail" || form.senha !== "12345") {
+    if (form.email !== "testeusuario123@gmail" || form.senha !== "12345teste") {
       setTipoMensagem("erro");
       setMensagem("E-mail ou senha incorretos.");
       setCarregando(false);

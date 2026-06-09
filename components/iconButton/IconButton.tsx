@@ -1,26 +1,28 @@
 import { ButtonHTMLAttributes } from "react";
 import { LucideIcon } from "lucide-react";
 
+import stylesIconButton from "@ConjuntosCss/ComponentesCss/IconButton.module.css";
+
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: LucideIcon;
   label: string;
   iconClassName?: string;
   labelClassName?: string;
-  classname?: string;
+  className?: string;
 }
 
 export default function IconButton({
   icon: Icon,
   label,
-  iconClassName = "w-5 h-5",
-  labelClassName = "text-sm font-medium",
+  iconClassName = stylesIconButton.icon,
+  labelClassName = stylesIconButton.label,
   className = "",
   ...props
 }: IconButtonProps) {
   return (
     <button
       type="button"
-      className={`flex items-center gap-3 rounded-md bg-amber-700 p-2 text-white transition-colors hover:bg-amber-800 hover:text-gray-300 ${className}`}
+      className={`${stylesIconButton.button} ${className}`}
       {...props}
     >
       <Icon className={iconClassName} />

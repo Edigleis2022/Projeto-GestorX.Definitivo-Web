@@ -1,8 +1,10 @@
 "use client";
 
-import IconButton from "@/components/iconButton";
+import IconButton from "@/components/iconButton/IconButton";
 import { Phone, User, FileText, Activity, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+
+import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 interface Props {
   isOpen: boolean;
@@ -19,7 +21,6 @@ export default function SlideBarContatos({
   onReport = () => {},
   onMonitor = () => {},
 }: Props) {
-
   const router = useRouter();
 
   if (!isOpen) {
@@ -28,50 +29,25 @@ export default function SlideBarContatos({
 
   function acessarLista() {
     router.push("/telas/slideBar/Contatos/AcessarLista");
-    onClose(); 
+    onClose();
   }
 
   return (
-    <div
-      className="absolute left-1/2 top-[calc(100%+0.75rem)] z-50 w-72 -translate-x-1/2 rounded-md border-4 border-amber-800 bg-amber-700 text-white shadow-lg"
-    >
-      <div className="flex flex-col justify-between p-5">
+    <div className={styleSlideBar.containerPrincipal}>
+      <div className={styleSlideBar.containerElementos}>
         <div>
-          <div className="flex items-center mb-6">
-            <h2 className="flex-1 text-center text-xl font-bold">
-              Contatos
-            </h2>
-
-            <button onClick={onClose}>
-              <X className="w-6 h-6 text-white hover:text-gray-300" />
+          <div className={styleSlideBar.containerElementoBotao}>
+            <h2 className={styleSlideBar.containerTextoElementoBotao}>Contatos</h2>
+            <button onClick={onClose} className={styleSlideBar.containerBotaoFechar}>
+              <X className={styleSlideBar.containerXElementoBotao} />
             </button>
           </div>
 
-          <nav className="flex flex-col space-y-4">
-
-            <IconButton
-              icon={Phone}
-              label="Acessar Lista"
-              onClick={acessarLista}
-            />
-
-            <IconButton
-              icon={User}
-              label="Adicionar Contato"
-              onClick={onAddContact}
-            />
-
-            <IconButton
-              icon={FileText}
-              label="Relatório"
-              onClick={onReport}
-            />
-
-            <IconButton
-              icon={Activity}
-              label="Monitoramento"
-              onClick={onMonitor}
-            />
+          <nav className={styleSlideBar.containerNavegacao}>
+            <IconButton icon={Phone} label="Acessar Lista" onClick={acessarLista} />
+            <IconButton icon={User} label="Adicionar Contato" onClick={onAddContact} />
+            <IconButton icon={FileText} label="Relatorio" onClick={onReport} />
+            <IconButton icon={Activity} label="Monitoramento" onClick={onMonitor} />
           </nav>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { dadosUsuario } from "@/components/dadosUsuario";
+import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 export default function AcessarPerfil() {
   const router = useRouter();
@@ -20,25 +21,31 @@ export default function AcessarPerfil() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
-      <div className="w-full max-w-2xl border border-black rounded-md bg-gray-100 p-6 space-y-6">
-        <div className="flex items-center justify-between w-full">
-          <Link href="/" className="hover:opacity-80 transition-opacity">
+    <main className={styleSlideBar.paginaPrincipalCentralizada}>
+      <div className={styleSlideBar.paginaCartaoFormulario}>
+        <div className={styleSlideBar.paginaCabecalhoFormulario}>
+          <Link href="/" className={styleSlideBar.paginaLinkLogo}>
             <Image
-              className="border-2 border-amber-600"
-              src={Logo} alt="Logo" width={120} height={220}
+              className={styleSlideBar.paginaLogo}
+              src={Logo}
+              alt="Logo"
+              width={120}
+              height={220}
             />
           </Link>
 
-          <h1 className="text-2xl font-bold text-black text-center flex-1">
-            Acessar Perfil
-          </h1>
+          <h1 className={styleSlideBar.paginaTituloEscuro}>Acessar Perfil</h1>
 
-          <Image className="h-[115px] w-[115px] rounded-full border-8 object-cover" 
-            src={PerfilIcon} alt="Ícone de Perfil" width={115} height={115} />
+          <Image
+            className={styleSlideBar.perfilImagem}
+            src={PerfilIcon}
+            alt="Icone de Perfil"
+            width={115}
+            height={115}
+          />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className={styleSlideBar.formularioGrid}>
           <Input label="Nome Completo" value={usuario.nomeCompleto} readOnly />
           <Input label="Nome do Perfil" value={usuario.nomePerfil} readOnly />
           <Input label="CPF" value={usuario.cpf} readOnly />
@@ -47,7 +54,7 @@ export default function AcessarPerfil() {
           <Input label="Estabelecimento" value={usuario.estabelecimento} readOnly />
         </div>
 
-        <div className="flex justify-between mt-6">
+        <div className={styleSlideBar.perfilAcoes}>
           <Button onClick={() => router.push("/telas/CriarUsuario")}>
             Adicionar Nova Conta
           </Button>

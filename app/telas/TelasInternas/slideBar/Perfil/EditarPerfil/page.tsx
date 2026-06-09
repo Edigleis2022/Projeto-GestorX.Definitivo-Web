@@ -5,6 +5,7 @@ import { Input } from "@/components/input";
 import { Button } from "@/components/button";
 import { useRouter } from "next/navigation";
 import { dadosUsuario } from "@/components/dadosUsuario";
+import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 export default function EditarPerfil() {
   const router = useRouter();
@@ -26,14 +27,11 @@ export default function EditarPerfil() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
-      <div className="w-full max-w-2xl border border-black rounded-md bg-gray-100 p-6 space-y-6">
+    <main className={styleSlideBar.paginaPrincipalCentralizada}>
+      <div className={styleSlideBar.paginaCartaoFormulario}>
+        <h1 className={styleSlideBar.paginaTituloEscuro}>Editar Perfil</h1>
 
-        <h1 className="text-2xl font-bold text-black text-center">
-          Editar Perfil
-        </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className={styleSlideBar.formularioGrid}>
           <Input label="Nome Completo" value={usuario.nomeCompleto}
             onChange={(e) => atualizar("nomeCompleto", e.target.value)} />
 
@@ -53,7 +51,7 @@ export default function EditarPerfil() {
             onChange={(e) => atualizar("estabelecimento", e.target.value)} />
         </div>
 
-        <Button onClick={salvar}>Salvar Alterações</Button>
+        <Button onClick={salvar}>Salvar Alteracoes</Button>
       </div>
     </main>
   );
