@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 import { LucideIcon } from "lucide-react";
 
-import stylesIconButton from "@ConjuntosCss/ComponentesCss/IconButton.module.css";
+import stylesIconButton from "../../ConjuntosCss/ComponentesCss/IconButton.module.css";
 
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: LucideIcon;
