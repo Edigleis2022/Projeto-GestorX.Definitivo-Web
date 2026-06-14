@@ -10,28 +10,55 @@ import Link from "next/link";
 import styleInput from "@/ConjuntosCss/ComponentesCss/Input.module.css";
 import styleEstrutura from "@/ConjuntosCss/TelasCss/EstruturaTelasIniciais.module.css";
 
-export default function CriarUsuario() { 
+export default function CriarUsuario() {
   const [form, setForm] = useState({
     nome: "",
+    cpf: "",
     email: "",
+    senha: "",
     cargo: "",
+    estabelecimento: "",
+    tipoUsuario: "ADMIN",
   });
+
   const [mensagem, setMensagem] = useState("");
-  const [tipoMensagem, setTipoMensagem] = useState<"erro" | "sucesso">("sucesso");
+  const [tipoMensagem, setTipoMensagem] = useState<"erro" | "sucesso">(
+    "sucesso",
+  );
 
   function atualizar(campo: string, valor: string) {
     setForm({ ...form, [campo]: valor });
   }
 
-  function criarContaDemonstracao() {
-    if (!form.nome || !form.email || !form.cargo) {
-      setTipoMensagem("erro");
-      setMensagem("Preencha os campos da demonstracao.");
-      return;
-    }
+  async function criarConta() {
+    try {
+      const response = await fetch("http://localhost:8080/usuarios", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
 
-    setTipoMensagem("sucesso");
-    setMensagem("Usuario de demonstracao pronto para acessar o sistema.");
+      const data = await response.json();
+
+      if (!response.ok) {
+        setTipoMensagem("erro");
+        setMensagem(data.message || "Erro ao criar usuário.");
+
+        return;
+      }
+
+      setTipoMensagem("sucesso");
+      setMensagem("Usuário criado com sucesso!");
+
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+
+      setTipoMensagem("erro");
+      setMensagem("Erro ao conectar com o servidor.");
+    }
   }
 
   return (
@@ -47,7 +74,9 @@ export default function CriarUsuario() {
               height={300}
             />
           </Link>
-          <h1 className={styleEstrutura.containerLinkTexto}>Demonstracao do Sistema</h1>
+          <h1 className={styleEstrutura.containerLinkTexto}>
+            Demonstracao do Sistema
+          </h1>
         </div>
 
         <div className={styleInput.containerOrdenaçãoInputs}>
@@ -80,7 +109,37 @@ export default function CriarUsuario() {
               className={styleInput.containerElementoInput}
               containerClassName={styleInput.containerElementoContainer}
             />
+            <InputandLabel
+              label="CPF"
+              value={form.cpf}
+              placeholder=" "
+              onChange={(e) => atualizar("cpf", e.target.value)}
+              className={styleInput.containerElementoInput}
+              containerClassName={styleInput.containerElementoContainer}
+            />
           </div>
+
+          <div className={styleInput.containerInputs}>
+            <InputandLabel
+              label="Senha"
+              value={form.senha}
+              placeholder=" "
+              onChange={(e) => atualizar("senha", e.target.value)}
+              className={styleInput.containerElementoInput}
+              containerClassName={styleInput.containerElementoContainer}
+            />
+          </div>
+          <div> 
+            <InputandLabel
+              label="Estabelecimento"
+              value={form.estabelecimento}
+              placeholder=" "
+              onChange={(e) => atualizar("estabelecimento", e.target.value)}
+              className={styleInput.containerElementoInput}
+              containerClassName={styleInput.containerElementoContainer}
+            />
+          </div>
+
         </div>
 
         {mensagem && (
@@ -95,7 +154,9 @@ export default function CriarUsuario() {
           </p>
         )}
 
-        <Button type="button" onClick={criarContaDemonstracao}>Criar Demonstracao</Button>
+        <Button type="button" onClick={criarConta}>
+          Criar Conta
+        </Button>
       </div>
     </main>
   );
