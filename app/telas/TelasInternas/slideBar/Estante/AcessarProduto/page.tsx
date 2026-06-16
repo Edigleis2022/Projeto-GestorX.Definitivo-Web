@@ -6,7 +6,6 @@ import { InputandLabel } from "@/components/inputandLabel";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-
 import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 export default function AcessarProduto() {
@@ -89,7 +88,7 @@ export default function AcessarProduto() {
 
       <div className={styleSlideBar.paginaLinkRetornoArea}>
         <Link
-          href="/telasTelasInternas/TelaPrincipal"
+          href="/telas/TelasInternas/TelaPrincipal"
           className={styleSlideBar.paginaLinkRetorno}
         >
           Voltar

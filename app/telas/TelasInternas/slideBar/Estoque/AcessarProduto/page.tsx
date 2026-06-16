@@ -6,7 +6,6 @@ import { Input } from "@/components/input";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Logo.png";
-import { produtosEstoque } from "@/components/produtosEstoque";
 import styleSlideBar from "@/ConjuntosCss/TelasCss/SlideBar.module.css";
 
 export default function AcessarProduto() {
@@ -15,12 +14,12 @@ export default function AcessarProduto() {
   const [produto, setProduto] = useState("");
   const [produtosAleatorios, setProdutosAleatorios] = useState<any[]>([]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const sorteados = produtosEstoque
       .sort(() => 0.5 - Math.random())
       .slice(0, 3);
     setProdutosAleatorios(sorteados);
-  }, []);
+  }, []); */
 
   return (
     <main className={styleSlideBar.paginaPrincipal}>
@@ -35,7 +34,7 @@ export default function AcessarProduto() {
       </header>
 
       <div className={styleSlideBar.paginaLinkRetornoArea}>
-        <Link href="/telas/TelaPrincipal" className={styleSlideBar.paginaLinkRetorno}>
+        <Link href="/telas/TelasInternas/TelaPrincipal" className={styleSlideBar.paginaLinkRetorno}>
           Voltar
         </Link>
       </div>
@@ -96,7 +95,7 @@ export default function AcessarProduto() {
                   <td className={styleSlideBar.tabelaCelula}>{p.fornecedor}</td>
                   <td className={styleSlideBar.tabelaCelula}>{p.preco}</td>
                   <td className={styleSlideBar.tabelaCelula}>{p.estoqueMinimo}</td>
-                  
+                  <td className={styleSlideBar.tabelaCelula}>{p.marca}</td>
                 </tr>
               ))}
             </tbody>

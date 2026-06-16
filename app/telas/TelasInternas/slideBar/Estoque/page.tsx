@@ -37,6 +37,11 @@ export default function SlideBarEstoque({
     onClose();
   }
 
+  function cadastrarProduto() {
+    router.push("/telas/TelasInternas/slideBar/Estoque/CadastrarProduto");
+    onClose();
+  }
+
   return (
     <div className={styleSlideBar.containerPrincipal}>
       <div className={styleSlideBar.containerElementos}>
@@ -50,6 +55,7 @@ export default function SlideBarEstoque({
 
           <nav className={styleSlideBar.containerNavegacao}>
             <IconButton icon={Boxes} label="Acessar Estoque" onClick={acessarEstoque} />
+            <IconButton icon={Package} label="Cadastrar Produto" onClick={cadastrarProduto}/>
             <IconButton icon={Package} label="Acessar Produto" onClick={acessarProduto} />
             <IconButton icon={ArrowLeftRight} label="Movimentacao" onClick={onMovement} />
             <IconButton icon={FileText} label="Relatorio" onClick={onReport} />
