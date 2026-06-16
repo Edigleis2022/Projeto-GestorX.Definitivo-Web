@@ -13,6 +13,54 @@ export default function AcessarProduto() {
   const [tipoBusca, setTipoBusca] = useState("");
   const [produto, setProduto] = useState("");
   const [produtosAleatorios, setProdutosAleatorios] = useState<any[]>([]);
+  const [produtos, setProdutos] = useState<any[]>([]);
+
+  // Exibe mensagens de erro para o usuário
+  const [erro, setErro] = useState("");
+
+  // Executa automaticamente quando a página é carregada
+  useEffect(() => {
+    buscarProdutos();
+  }, []);
+
+  async function buscarProdutos() {
+    // Recupera credenciais salvas no login
+    const email = localStorage.getItem("email");
+    const senha = localStorage.getItem("senha");
+
+    console.log("Email:", email);
+    console.log("Senha:", senha);
+    console.log("Authorization:", "Basic " + btoa(`${email}:${senha}`));
+
+    try {
+      const response = await fetch("http://localhost:8080/produtos", {
+
+        // Envia Basic Auth para o Spring Security
+        headers: {
+          //Basic Auth
+          Authorization: "Basic " + btoa(`${email}:${senha}`),
+          
+          "Content-Type": "application/json"
+        },
+      });
+
+      if (!response.ok) {
+        const erro = await response.text();
+
+        throw new Error(`Erro ${response.status}: ${erro}`);
+      }
+
+      const dados = await response.json();
+
+      console.log("Produtos encontrados:", dados);
+
+      setProdutos(dados);
+    } catch (error) {
+      console.error("Erro ao buscar produtos:", error);
+
+      setErro("Não foi possível carregar os produtos.");
+    }
+  }
 
   /* useEffect(() => {
     const sorteados = produtosEstoque
@@ -87,15 +135,15 @@ export default function AcessarProduto() {
               </tr>
             </thead>
             <tbody>
-              {produtosAleatorios.map((p, index) => (
-                <tr key={index} className={styleSlideBar.tabelaLinha}>
-                  <td className={styleSlideBar.tabelaCelula}>{p.codigo}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.nome}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.categoria}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.fornecedor}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.preco}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.estoqueMinimo}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{p.marca}</td>
+              {produtos.map((produto) => (
+                <tr key={produto.id} className={styleSlideBar.tabelaLinha}>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.codigo}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.nome}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.categoria}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.fornecedor}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.preco}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.estoqueMinimo}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.marca}</td>
                 </tr>
               ))}
             </tbody>
