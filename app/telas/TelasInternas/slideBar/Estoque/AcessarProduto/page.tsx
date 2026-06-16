@@ -50,6 +50,7 @@ export default function AcessarProduto() {
               <option value="codigo">Codigo do Produto</option>
               <option value="categoria">Categoria</option>
               <option value="fornecedor">Fornecedor</option>
+              <option value="marca">Marca</option>
             </select>
           </div>
 
@@ -80,8 +81,10 @@ export default function AcessarProduto() {
                 <th className={styleSlideBar.tabelaCelula}>Codigo</th>
                 <th className={styleSlideBar.tabelaCelula}>Nome</th>
                 <th className={styleSlideBar.tabelaCelula}>Categoria</th>
+                <th className={styleSlideBar.tabelaCelula}>Marca</th>
                 <th className={styleSlideBar.tabelaCelula}>Fornecedor</th>
                 <th className={styleSlideBar.tabelaCelula}>Preco</th>
+                <th className={styleSlideBar.tabelaCelula}>Estoque Minimo</th>
               </tr>
             </thead>
             <tbody>
@@ -92,6 +95,8 @@ export default function AcessarProduto() {
                   <td className={styleSlideBar.tabelaCelula}>{p.categoria}</td>
                   <td className={styleSlideBar.tabelaCelula}>{p.fornecedor}</td>
                   <td className={styleSlideBar.tabelaCelula}>{p.preco}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{p.estoqueMinimo}</td>
+                  
                 </tr>
               ))}
             </tbody>
