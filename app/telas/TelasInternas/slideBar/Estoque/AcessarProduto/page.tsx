@@ -140,10 +140,11 @@ export default function AcessarProduto() {
                   <td className={styleSlideBar.tabelaCelula}>{produto.codigo}</td>
                   <td className={styleSlideBar.tabelaCelula}>{produto.nome}</td>
                   <td className={styleSlideBar.tabelaCelula}>{produto.categoria}</td>
+                  <td className={styleSlideBar.tabelaCelula}>{produto.marca}</td> 
                   <td className={styleSlideBar.tabelaCelula}>{produto.fornecedor}</td>
                   <td className={styleSlideBar.tabelaCelula}>{produto.preco}</td>
                   <td className={styleSlideBar.tabelaCelula}>{produto.estoqueMinimo}</td>
-                  <td className={styleSlideBar.tabelaCelula}>{produto.marca}</td>
+                  
                 </tr>
               ))}
             </tbody>

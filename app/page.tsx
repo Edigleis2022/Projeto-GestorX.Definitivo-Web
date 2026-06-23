@@ -88,7 +88,7 @@ export default function CadastrarUsuario() {
             width={200}
             height={300}
           />
-          <h1 className={styleEstrutura.tituloCabecalho}>Cadastrar Usuario</h1>
+          <h1 className={styleEstrutura.tituloCabecalho}>Secure Access</h1>
         </div>
 
         <div className={styleInput.containerInputs}>
@@ -140,7 +140,7 @@ export default function CadastrarUsuario() {
         )}
 
         <Button type="button" onClick={entrar} disabled={carregando}>
-          {carregando ? "Entrando..." : "Entrar"}
+          {carregando ? "Acessando..." : "Acessar Sistema"}
         </Button>
       </div>
     </main>
